@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stopwatch</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+          <div class="navbar">
+            <div class="logo">
+              <img src="/static/cy.png" alt=""><!--You can put image of choice here-->
+              <h1>CyBrainz_TRM</h1>
+            </div>
+            <ul>
+              <li><a href="#">
+                <i class="fas fa-user"></i>
+                <a type="button" class="nav-item" href="/dashboard">Dashboard</a>
+              </a>
+              </li>
+              <li><a href="#">
+                <i class="fas fa-chart-bar"></i>
+                <a type='button' href="/Trm" class="nav-item">Timer</a>
+              </a>
+              </li>
+              <li><a href="#">
+                <i class="fas fa-tasks"></i>
+                <a type="button" class="nav-item" href="/">Home</a>
+              </a>
+              </li>
+              <li><a href="#">
+                <i class="fab fa-dochub"></i>
+                <a class="nav-item" href="/login">Login</a>
+              </a>
+              </li>
+              <li><a href="#">
+                <i class="fas fa-cog"></i>
+                <a class="nav-item" href="/sign-up">Sign Up</a>
+              </a>
+              </li>
+              <li><a href="#">
+                <i class="fas fa-question-circle"></i>
+                <span class="nav-item">Logout</span>
+              </a>
+              </li>
+              <li><a href="/help" class="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="nav-item">Help</span>
+              </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    <link rel="stylesheet" href="static/styless.css">
+    <h1 id="heading">Stopwatch</h1>
+    <div id="stopwatch">0:00:00</div>
+    <button id="start">Clock in</button>
+    <button id="stop">Clock</button>
+    <button id="reset">Reset</button>
+    <linl rel="stylesheet" href="static/stylo.css">
+    <script>
+        var timer; // Global variable to hold the setInterval instance
+        var startTime; // Start time of the stopwatch
+        var elapsedTime = 0; // Elapsed time in milliseconds
+
+        function startTimer() {
+            startTime = Date.now() - elapsedTime; // Set the start time
+            timer = setInterval(updateTime, 10); // Update time every 10 milliseconds
+        }
+
+        function stopTimer() {
+            clearInterval(timer); // Stop the timer
+        }
+
+        function resetTimer() {
+            clearInterval(timer); // Stop the timer
+            elapsedTime = 0; // Reset the elapsed time
+            updateDisplay(); // Update the display
+        }
+
+        function updateTime() {
+            elapsedTime = Date.now() - startTime; // Calculate elapsed time
+            updateDisplay(); // Update the display
+        }
+
+        function updateDisplay() {
+            var milliseconds = Math.floor(elapsedTime % 1000 / 10);
+            var seconds = Math.floor(elapsedTime / 1000 % 60);
+            var minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
+            var hours = Math.floor(elapsedTime / (1000 * 60 * 60) % 24);
+
+            // Format the time
+            var timeString = hours.toString().padStart(2, '0') + ':' +
+                minutes.toString().padStart(2, '0') + ':' +
+                seconds.toString().padStart(2, '0') + '.' +
+                milliseconds.toString().padStart(2, '0');
+
+            document.getElementById('stopwatch').textContent = timeString;
+        }
+        // Event listeners for buttons
+        document.getElementById('start').addEventListener('click', startTimer);
+        document.getElementById('stop').addEventListener('click', stopTimer);
+        document.getElementById('reset').addEventListener('click', resetTimer);
+    </script>
+    <link rel="stylesheet" href="/">
+</body>
+</html>

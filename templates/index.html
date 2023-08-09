@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="static/cy.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyBrainz_TRM</title>
+    <link rel="stylesheet" href="static/style.css">
+    <scr src="timer.js"></script>
+    <link rel="stylesheet" href="static/utils.css">
+</head>
+
+<body class='overflow-x-hidden'>
+    <div class="container mx-auto">
+        <header>
+            <nav class="flex justify-between">
+                <div class="logo font-bold flex items-center text-blue">CyBrainz_TRM</div>
+                <ul class="navbar flex items-center">
+                    <a type="button" href='/' style='margin-right:16px'>Home</a>
+                    <a type="button" style='margin-right:16px' href='/dashboard'>Dashboard</a>
+                    <a type="button" href="/login" style='margin-right:16px'>Login</a>
+                    <a type="button" href="/sign-up" style='margin-right:16px'>Signup</a>
+                </ul>
+            </nav>
+            <hr>
+        </header>
+        <main class="min-h-screen">
+            <section class="section1">
+                <div class="flex">
+                    <div class="topleft flex flex-col justify-center px-2">
+                        <div class=" text-center">
+                            <img class="dumbellimg" src="static/dumbell.png" alt="">
+                        </div>
+                        <h1 class="my-1 text-center">Keep track of when  start you work</h1>
+                        <p class=" text-center">CyBrainz_TRM is an python web application
+                            made in that can record the time spent woking and store it in our database
+                        </p>
+                            <!-- Display the countdown timer in an element -->
+                            <div class="buttons">
+                                <button class="btn" onclick="window.location.href='/sign-up'">Join now</button>
+                                </a>
+                            </div>
+                    </div>
+                    <div class="topright flex justify-center">
+                        <img class="gymimg" src="static/gym.png" alt="">
+                    </div>
+                </div>
+            </section>
+    </div>
+</body>
+
+</html>
